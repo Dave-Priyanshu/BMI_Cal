@@ -4,21 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/for_bgofTF"
     tools:context=".SecondActivity">
 
-    <ImageView
-        android:id="@+id/img1"
+
+    <TextView
+        android:layout_marginTop="100dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"/>
+        android:text="Weight"
+        android:id="@+id/WeightInfo"
+        android:textSize="32sp"
+        android:padding="20dp"
+        android:textStyle="bold"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is second activity"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/img1"
-        android:layout_marginTop="8dp"
-        android:textSize="30dp"/>
+        android:text="HeightFt"
+        android:padding="20dp"
+        android:id="@+id/HeightInfo"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HeightIn"
+        android:padding="20dp"
+        android:id="@+id/HeightInInfo"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
 
 
 </LinearLayout>

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         edtWeight = findViewById(R.id.edtWeight);
         edtHeightFt = findViewById(R.id.edtHeightFt);
-        edtHeightIn = findViewById(R.id.edtHeightFt);
+        edtHeightIn = findViewById(R.id.edtHeightIn);
         btnCalculate = findViewById(R.id.btnCalculate);
         btnNext = findViewById(R.id.btnNext);
         txtResult = findViewById(R.id.txtResult);
@@ -94,6 +94,15 @@ public class MainActivity extends AppCompatActivity {
 
                 //telling intent that we are currently on main class and we want to go to second class
                 iNext = new Intent(MainActivity.this, SecondActivity.class);
+                // Get the values from the EditText fields
+                String weightValue = edtWeight.getText().toString();
+                String heightFtValue = edtHeightFt.getText().toString();
+                String heightInValue = edtHeightIn.getText().toString();
+
+                // Pass the values to the intent extras
+                iNext.putExtra("Weight", weightValue);
+                iNext.putExtra("Height", heightFtValue);
+                iNext.putExtra("heightIn", heightInValue);
                 startActivity(iNext);
 
             }
