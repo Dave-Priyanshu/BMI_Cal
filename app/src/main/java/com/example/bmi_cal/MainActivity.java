@@ -3,6 +3,7 @@ package com.example.bmi_cal;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         //making var to store id(link)
         EditText edtWeight,edtHeightFt,edtHeightIn;
         Button btnCalculate;
+        Button btnNext;
         TextView txtResult;
         LinearLayout LiMain;
 
@@ -31,10 +33,12 @@ public class MainActivity extends AppCompatActivity {
         edtHeightFt = findViewById(R.id.edtHeightFt);
         edtHeightIn = findViewById(R.id.edtHeightFt);
         btnCalculate = findViewById(R.id.btnCalculate);
+        btnNext = findViewById(R.id.btnNext);
         txtResult = findViewById(R.id.txtResult);
         LiMain = findViewById(R.id.LiMain);
 
         //creating what will happen after clicks..
+
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +84,17 @@ public class MainActivity extends AppCompatActivity {
                     edtHeightFt.setTextColor(getResources().getColor(R.color.black));
                     edtHeightIn.setTextColor(getResources().getColor(R.color.black));
                 }
+
+            }
+        });
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent iNext;
+
+                //telling intent that we are currently on main class and we want to go to second class
+                iNext = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(iNext);
 
             }
         });
