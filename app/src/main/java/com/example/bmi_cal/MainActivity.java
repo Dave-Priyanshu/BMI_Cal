@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -26,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
         EditText edtWeight,edtHeightFt,edtHeightIn;
         Button btnCalculate;
         Button btnNext;
+        //adding animation on the result
         TextView txtResult;
+        //adding buttons
+        Button btnTranslate,btnAlpha,btnRoatate,btnScale;
+
         LinearLayout LiMain;
 
         edtWeight = findViewById(R.id.edtWeight);
@@ -34,11 +40,52 @@ public class MainActivity extends AppCompatActivity {
         edtHeightIn = findViewById(R.id.edtHeightIn);
         btnCalculate = findViewById(R.id.btnCalculate);
         btnNext = findViewById(R.id.btnNext);
+        //adding animation on the result
         txtResult = findViewById(R.id.txtResult);
+        //id finding
+        btnTranslate = findViewById(R.id.btnTranslate);
+        btnAlpha = findViewById(R.id.btnAlpha);
+        btnRoatate = findViewById(R.id.btnRoatate);
+        btnScale = findViewById(R.id.btnScale);
+
         LiMain = findViewById(R.id.LiMain);
 
-        //creating what will happen after clicks..
 
+
+        //creating listener for animation buttons
+        btnTranslate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation move = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.move);
+                txtResult.startAnimation(move);
+
+            }
+        });
+        btnAlpha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation alpha = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
+                txtResult.startAnimation(alpha);
+
+            }
+        });
+        btnRoatate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation rotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
+                txtResult.startAnimation(rotate);
+
+            }
+        });
+        btnScale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation scale = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale);
+                txtResult.startAnimation(scale);
+
+            }
+        });
+        //creating what will happen after clicks..
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
